@@ -503,17 +503,7 @@
 
   <script>
     // Mobile nav toggle
-    const navToggle = document.getElementById("navToggle");
-const navLinks = document.querySelector(".nav-links");
-
-if (navToggle && navLinks) {
-  navToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("nav-open");
-  });
-}
-
-    });
-
+    
     // Dynamic year
     document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -544,6 +534,44 @@ if (navToggle && navLinks) {
         });
     });
   </script>
+
+
+/* Better mobile layout */
+@media (max-width: 768px) {
+  .nav-shell {
+    padding: 0.6rem 0.9rem;
+  }
+
+  .nav-inner {
+    gap: 0.6rem;
+  }
+
+  .main-nav {
+    gap: 0.4rem;
+  }
+
+  .nav-link {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .hero {
+    padding-top: 6rem;
+    padding-bottom: 3rem;
+  }
+
+  .hero-content {
+    gap: 1.25rem;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.85rem;
+  }
+}
 
 </body>
 </html>
