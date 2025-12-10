@@ -432,31 +432,20 @@
       }
     }
 
- @media (max-width: 720px) {
-  .blog-hero {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .featured-card {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .posts-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .blog-nav {
-    padding-inline: 0.8rem;
-    flex-wrap: wrap;         /* allow logo + links to wrap on 2 lines */
-    row-gap: 0.4rem;
-  }
-
-  .blog-nav ul {
-    flex-wrap: wrap;         /* links wrap instead of going off-screen */
-    justify-content: flex-end;
-  }
-}
-
+    @media (max-width: 720px) {
+      .blog-hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .featured-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .posts-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .blog-nav {
+        padding-inline: 0.8rem;
+      }
+    }
 
     .post-card {
       border-radius: 1rem;
