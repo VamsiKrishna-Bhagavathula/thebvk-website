@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | VamC</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- If you already have style.css from your main site, keep this -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Blog-specific styles (scoped to .blog-page to avoid conflicts) -->
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --card: #111827;
+      --accent: #6366f1;
+      --accent-soft: rgba(99, 102, 241, 0.13);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: rgba(148, 163, 184, 0.3);
+      --radius-xl: 1.5rem;
+      --radius-lg: 1rem;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.7);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body.blog-page {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 45%, #000 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .blog-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    /* NAVBAR (simple, matches main idea) */
+    .blog-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.25rem;
+      margin-bottom: 1.5rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+      position: sticky;
+      top: 0.75rem;
+      z-index: 20;
+    }
+
+    .blog-logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .blog-logo span {
+      display: inline-flex;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0%, #a855f7, #6366f1 40%, #22c55e 100%);
+      box-shadow: 0 0 25px rgba(129, 140, 248, 0.9);
+    }
+
+    .blog-nav ul {
+      list-style: none;
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+
+    .blog-nav a {
+      text-decoration: none;
+      color: var(--muted);
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: 0.18s ease;
+    }
+
+    .blog-nav a:hover {
+      color: #f9fafb;
+      border-color: rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .blog-nav a.blog-active {
+      color: #f9fafb;
+      border-color: rgba(129, 140, 248, 0.9);
+      background: radial-gradient(circle at top, rgba(129, 140, 248, 0.35), rgba(15, 23, 42, 0.98));
+      box-shadow: 0 0 25px rgba(129, 140, 248, 0.7);
+    }
+
+    /* HERO */
+    .blog-hero {
+      margin-top: 2.25rem;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(260px, 2.2fr);
+      gap: 1.75rem;
+      align-items: stretch;
+    }
+
+    .blog-hero-main {
+      background: radial-gradient(circle at top left, rgba(99, 102, 241, 0.22), rgba(15, 23, 42, 0.96));
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.8);
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .blog-pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.8);
+    }
+
+    .blog-title {
+      font-size: 1.8rem;
+      line-height: 1.2;
+      margin-bottom: 0.4rem;
+    }
+
+    .blog-title span {
+      background: linear-gradient(120deg, #a855f7, #6366f1, #22c55e);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .blog-subtitle {
+      font-size: 0.93rem;
+      color: var(--muted);
+      max-width: 30rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .blog-hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.35rem;
+    }
+
+    .blog-tag {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--muted);
+    }
+
+    .blog-hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1.1rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 0.55rem 1.2rem;
+      font-size: 0.8rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: 0.18s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #4f46e5, #6366f1, #a855f7);
+      color: #f9fafb;
+      box-shadow: 0 10px 30px rgba(79, 70, 229, 0.7);
+      border-color: rgba(129, 140, 248, 0.85);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 14px 40px rgba(79, 70, 229, 0.9);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.7);
+      color: var(--muted);
+      border-color: rgba(148, 163, 184, 0.6);
+    }
+
+    .btn-ghost:hover {
+      color: #e5e7eb;
+      border-color: rgba(148, 163, 184, 0.9);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .blog-meta-line {
+      font-size: 0.72rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.1rem;
+    }
+
+    .blog-meta-line strong {
+      color: #e5e7eb;
+    }
+
+    /* HERO SIDE CARD */
+    .blog-hero-side {
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.98));
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.2rem;
+    }
+
+    .side-heading {
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+
+    .side-text {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .side-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .side-pill {
+      font-size: 0.7rem;
+      padding: 0.22rem 0.5rem;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      color: var(--muted);
+    }
+
+    .side-highlight {
+      font-size: 0.75rem;
+      padding: 0.4rem 0.7rem;
+      border-radius: var(--radius-lg);
+      background: rgba(34, 197, 94, 0.06);
+      border: 1px solid rgba(34, 197, 94, 0.18);
+      color: #bbf7d0;
+    }
+
+    /* SECTION TITLES */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 2.3rem 0 0.9rem;
+      gap: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+
+    .section-subtitle {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* FEATURED POST */
+    .featured-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(200px, 1fr);
+      gap: 1.25rem;
+      padding: 1.4rem;
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 1));
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .featured-label {
+      font-size: 0.7rem;
+      color: #a5b4fc;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.45rem;
+    }
+
+    .featured-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .featured-excerpt {
+      font-size: 0.83rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .featured-meta {
+      font-size: 0.75rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .featured-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .featured-tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .featured-aside {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top, rgba(129, 140, 248, 0.15), rgba(15, 23, 42, 0.98));
+      border: 1px solid rgba(129, 140, 248, 0.55);
+      padding: 1rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.6rem;
+    }
+
+    .featured-aside strong {
+      color: #e5e7eb;
+    }
+
+    /* POSTS GRID */
+    .posts-grid {
+      margin-top: 1.1rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    @media (max-width: 960px) {
+      .posts-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .blog-hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .featured-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .posts-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .blog-nav {
+        padding-inline: 0.8rem;
+      }
+    }
+
+    .post-card {
+      border-radius: 1rem;
+      padding: 1rem;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.9);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.55rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .post-badge {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(148, 163, 184, 0.9);
+    }
+
+    .post-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .post-excerpt {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .post-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      margin-top: 0.3rem;
+      color: var(--muted);
+    }
+
+    .post-tag {
+      font-size: 0.68rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+    }
+
+    .post-read {
+      text-decoration: none;
+      font-size: 0.75rem;
+      color: #a5b4fc;
+    }
+
+    .post-read:hover {
+      text-decoration: underline;
+    }
+
+    /* MESSAGE / QUESTIONS SECTION */
+    .message-section {
+      margin-top: 2.5rem;
+      padding: 1.6rem 1.4rem 1.8rem;
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top right, rgba(34, 197, 94, 0.16), rgba(15, 23, 42, 0.97));
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .message-header {
+      margin-bottom: 0.9rem;
+    }
+
+    .message-header h2 {
+      font-size: 1.05rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .message-header p {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .message-form {
+      margin-top: 0.75rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
+    }
+
+    .message-form .full-width {
+      grid-column: 1 / -1;
+    }
+
+    .message-form label {
+      display: block;
+      font-size: 0.78rem;
+      margin-bottom: 0.25rem;
+      color: #d1d5db;
+    }
+
+    .message-form input,
+    .message-form textarea {
+      width: 100%;
+      border-radius: 0.85rem;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.96);
+      padding: 0.6rem 0.8rem;
+      font-size: 0.8rem;
+      color: var(--text);
+      outline: none;
+      transition: 0.16s ease;
+      resize: vertical;
+      min-height: 40px;
+    }
+
+    .message-form input::placeholder,
+    .message-form textarea::placeholder {
+      color: rgba(148, 163, 184, 0.7);
+    }
+
+    .message-form input:focus,
+    .message-form textarea:focus {
+      border-color: rgba(129, 140, 248, 0.9);
+      box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.4);
+    }
+
+    .message-note {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+
+    .message-submit {
+      margin-top: 0.2rem;
+    }
+
+    .message-submit button {
+      width: 100%;
+      border-radius: 999px;
+      padding: 0.6rem 1.1rem;
+      font-size: 0.82rem;
+      border: 1px solid rgba(34, 197, 94, 0.5);
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #022c22;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.16s ease;
+      box-shadow: 0 12px 30px rgba(22, 163, 74, 0.7);
+    }
+
+    .message-submit button:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 16px 40px rgba(22, 163, 74, 0.9);
+    }
+
+    /* FOOTER */
+    .blog-footer {
+      margin-top: 2.3rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding-top: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.75rem;
+    }
+
+    .footer-links a {
+      color: rgba(148, 163, 184, 0.9);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body class="blog-page">
+  <div class="blog-container">
+    <!-- NAVBAR (linked to other tab/pages) -->
+  <header class="blog-nav">
+  <a href="index.html" class="blog-logo">
+ <img src="bvk-logo.jpeg" alt="BVK logo" class="brand-logo" />
+    
+  </a>
+
+
+      <ul>
+        <li><a href="index.html">Home</a></li>
+<li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="blog.html" class="blog-active">Blog</a></li>
+      </ul>
+    </header>
+
+    <!-- HERO -->
+    <section class="blog-hero">
+      <div class="blog-hero-main">
+        <div class="blog-pill">
+          <span class="blog-pill-dot"></span>
+          Developer Notes • Thoughts • Experiments
+        </div>
+
+        <h1 class="blog-title">
+          Ideas from a <span>Software Engineer’s</span> desk.
+        </h1>
+        <p class="blog-subtitle">
+         I share what I’m building, breaking, and fixing — from system design sketches
+to tiny bugs that taught me big lessons. If you’re a recruiter, engineer, or
+curious builder, this is where you see how I think.
+        </p>
+
+        <div class="blog-hero-tags">
+          <span class="blog-tag">#web-dev</span>
+          <span class="blog-tag">#system-design</span>
+          <span class="blog-tag">#frontend</span>
+          <span class="blog-tag">#backend</span>
+          <span class="blog-tag">#career</span>
+        </div>
+
+        <div class="blog-hero-buttons">
+          <a href="#latest-posts" class="btn-primary">
+            Read latest posts →
+          </a>
+          <a href="#ask-me" class="btn-ghost">
+            Ask me a question
+          </a>
+        </div>
+
+        <div class="blog-meta-line">
+          <span><strong>Updated often</strong> with real issues from the code I’m shipping.</span>
+          <span>Mostly about Java, system design, performance, and clean architecture.
+.</span>
+        </div>
+      </div>
+
+      <aside class="blog-hero-side">
+        <div>
+          <h3 class="side-heading">What you’ll find here</h3>
+          <p class="side-text">
+            Short, practical posts focused on how I approach problems — not just screenshots
+            of results. I want this page to reflect how I think as an engineer.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="side-heading">Topics I write about</h4>
+          <div class="side-stack">
+            <span class="side-pill">Code walkthroughs</span>
+            <span class="side-pill">Debugging stories</span>
+            <span class="side-pill">Architecture notes</span>
+            <span class="side-pill">Performance wins</span>
+            <span class="side-pill">Tooling & workflow</span>
+            <span class="side-pill">Career thoughts</span>
+          </div>
+        </div>
+
+        <div class="side-highlight">
+          Strong engineering is about clarity of thought.  
+          This blog is where I make that visible.
+        </div>
+      </aside>
+    </section>
+
+    <!-- FEATURED POST -->
+    <section id="latest-posts">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Featured post</h2>
+          <p class="section-subtitle">You can replace this with your own article later.</p>
+        </div>
+      </div>
+
+      <article class="featured-card">
+        <div>
+          <div class="featured-label">Case study</div>
+          <h3 class="featured-title">
+            From “it works on my machine” to a stable, production-ready feature.
+          </h3>
+          <p class="featured-excerpt">
+           How I shipped a feature end-to-end: breaking down the problem, designing a clean API,
+avoiding hidden complexity, and leaving the codebase easy for the next engineer to change.
+
+          </p>
+
+          <div class="featured-meta">
+            <span>🕒 7 min read</span>
+            <span>📅 Jan 2025</span>
+            <span>🧩 Topics: system design, testing, code review</span>
+          </div>
+
+          <div class="featured-tag-list">
+            <span class="post-tag">Architecture</span>
+            <span class="post-tag">Team-ready code</span>
+            <span class="post-tag">Clean abstractions</span>
+          </div>
+
+          <a href="#" class="post-read">Read full post (coming soon)</a>
+        </div>
+
+        <aside class="featured-aside">
+          <div>
+            <strong>Why this post matters to recruiters</strong>
+          </div>
+          <p>
+            This is the kind of thinking I bring to teams: clear communication, trade-offs,
+            and an understanding that “done” means reliable, observable, and understandable,
+            not just “it runs once on my laptop”.
+          </p>
+        </aside>
+      </article>
+    </section>
+
+    <!-- OTHER POSTS GRID (you can add / edit cards anytime) -->
+    <section>
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">More posts & ideas</h2>
+          <p class="section-subtitle">Shorter notes you can turn into full articles later.</p>
+        </div>
+      </div>
+
+      <div class="posts-grid">
+        <article class="post-card">
+          <div>
+            <div class="post-badge">Performance</div>
+            <h3 class="post-title">What I look at first when a React app “feels slow”</h3>
+            <p class="post-excerpt">
+              A quick mental checklist I run before opening any profiler: state shape,
+              unnecessary renders, and expensive work happening in the wrong place.
+            </p>
+          </div>
+          <div class="post-footer">
+            <span>3 min • Frontend</span>
+            <span class="post-tag">React</span>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div>
+            <div class="post-badge">Debugging</div>
+            <h3 class="post-title">The bug that only appeared at 2 a.m. (and what it taught me)</h3>
+            <p class="post-excerpt">
+              A race condition story, plus how better logging and simpler state design
+              would have saved us hours.
+            </p>
+          </div>
+          <div class="post-footer">
+            <span>4 min • Backend</span>
+            <span class="post-tag">Reliability</span>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div>
+            <div class="post-badge">Career</div>
+            <h3 class="post-title">How I decide what to learn next as a developer</h3>
+            <p class="post-excerpt">
+              Instead of chasing every new framework, I track my gaps around fundamentals,
+              systems, and tools that actually compound.
+            </p>
+          </div>
+          <div class="post-footer">
+            <span>3 min • Growth</span>
+            <span class="post-tag">Mindset</span>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div>
+            <div class="post-badge">Architecture</div>
+            <h3 class="post-title">Keeping a codebase “boringly consistent” on purpose</h3>
+            <p class="post-excerpt">
+              Why predictable patterns beat clever tricks when you’re building products
+              that multiple people will maintain.
+            </p>
+          </div>
+          <div class="post-footer">
+            <span>5 min • Systems</span>
+            <span class="post-tag">Scalability</span>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div>
+            <div class="post-badge">Tools</div>
+            <h3 class="post-title">My current dev stack and how each tool earns its place</h3>
+            <p class="post-excerpt">
+              From editor setup to git habits — focusing on what removes friction instead
+              of just looking “aesthetic”.
+            </p>
+          </div>
+          <div class="post-footer">
+            <span>4 min • Workflow</span>
+            <span class="post-tag">Tooling</span>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div>
+            <div class="post-badge">Notes</div>
+            <h3 class="post-title">Micro-notes from real bugs I’ve fixed recently</h3>
+            <p class="post-excerpt">
+              Tiny lessons: off-by-one issues, async mistakes, and assumptions that were
+              silently wrong in production.
+            </p>
+          </div>
+          <div class="post-footer">
+            <span>2 min • Mixed</span>
+            <span class="post-tag">Debug log</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- MESSAGE / “ASK ME” SECTION -->
+    <section id="ask-me" class="message-section">
+      <div class="message-header">
+        <h2>Have a doubt about anything I wrote?</h2>
+        <p>
+          Whether you’re a recruiter, engineer, or student — if something here sparks a
+          question, send it. I read every message and reply personally.
+
+        </p>
+      </div>
+
+      <!-- 
+        Replace action="#" with the same endpoint you use on your main contact form
+        (e.g., Formspree / backend route) so this also sends you emails.
+      -->
+      <form class="message-form" action="#" method="POST">
+        <div>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required />
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required />
+        </div>
+
+        <div class="full-width">
+          <label for="topic">Topic (optional)</label>
+          <input id="topic" name="topic" type="text" placeholder="Post, idea, or topic you’re asking about" />
+        </div>
+
+        <div class="full-width">
+          <label for="message">Your message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            placeholder="Ask me about a post, my approach to a problem, or anything you’d like to discuss."
+            required
+          ></textarea>
+        </div>
+
+        <div class="full-width message-submit">
+          <button type="submit">Send message</button>
+        </div>
+      </form>
+
+      <p class="message-note">
+        I won’t spam you. I’ll only use your email to reply to your question.
+      </p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="blog-footer">
+      <span>© <span id="year"></span> VamC • Built with clean HTML & CSS</span>
+      <div class="footer-links">
+        <a href="index.html#projects">View my projects</a>
+        <a href="index.html#contact">Get in touch</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Simple dynamic year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
