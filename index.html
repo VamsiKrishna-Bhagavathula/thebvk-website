@@ -21,7 +21,7 @@
   <header class="nav-shell">
   <div class="nav-inner">
     <!-- Logo -->
-    <a href="index.html" class="brand">
+    <a href="/" class="brand">
 	<img src="bvk-logo.jpeg" alt="BVK logo" class="brand-logo" />
       
    
@@ -504,9 +504,14 @@
   <script>
     // Mobile nav toggle
     const navToggle = document.getElementById("navToggle");
-    const navLinks = document.querySelector(".nav-links");
-    navToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("nav-open");
+const navLinks = document.querySelector(".nav-links");
+
+if (navToggle && navLinks) {
+  navToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("nav-open");
+  });
+}
+
     });
 
     // Dynamic year
