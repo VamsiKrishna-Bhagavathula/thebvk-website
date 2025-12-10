@@ -13,10 +13,10 @@
     rel="stylesheet"
   />
 
-  <!-- If you already have style.css from your main site, keep this -->
+  <!-- Main site styles -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Blog-specific styles (scoped to .blog-page to avoid conflicts) -->
+  <!-- Blog-specific styles -->
   <style>
     :root {
       --bg: #050816;
@@ -39,8 +39,14 @@
     }
 
     body.blog-page {
-      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1e293b 0, #020617 45%, #000 100%);
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: radial-gradient(
+        circle at top,
+        #1e293b 0,
+        #020617 45%,
+        #000 100%
+      );
       color: var(--text);
       min-height: 100vh;
     }
@@ -51,7 +57,7 @@
       padding: 1.5rem 1.25rem 3rem;
     }
 
-    /* NAVBAR (simple, matches main idea) */
+    /* NAVBAR */
     .blog-nav {
       display: flex;
       align-items: center;
@@ -76,6 +82,7 @@
       display: flex;
       align-items: center;
       gap: 0.45rem;
+      text-decoration: none;
     }
 
     .blog-logo span {
@@ -113,7 +120,11 @@
     .blog-nav a.blog-active {
       color: #f9fafb;
       border-color: rgba(129, 140, 248, 0.9);
-      background: radial-gradient(circle at top, rgba(129, 140, 248, 0.35), rgba(15, 23, 42, 0.98));
+      background: radial-gradient(
+        circle at top,
+        rgba(129, 140, 248, 0.35),
+        rgba(15, 23, 42, 0.98)
+      );
       box-shadow: 0 0 25px rgba(129, 140, 248, 0.7);
     }
 
@@ -127,7 +138,11 @@
     }
 
     .blog-hero-main {
-      background: radial-gradient(circle at top left, rgba(99, 102, 241, 0.22), rgba(15, 23, 42, 0.96));
+      background: radial-gradient(
+        circle at top left,
+        rgba(99, 102, 241, 0.22),
+        rgba(15, 23, 42, 0.96)
+      );
       border-radius: var(--radius-xl);
       border: 1px solid var(--border);
       padding: 1.75rem;
@@ -253,7 +268,11 @@
 
     /* HERO SIDE CARD */
     .blog-hero-side {
-      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.98));
+      background: radial-gradient(
+        circle at top,
+        rgba(15, 23, 42, 0.9),
+        rgba(15, 23, 42, 0.98)
+      );
       border-radius: var(--radius-xl);
       border: 1px solid var(--border);
       padding: 1.5rem;
@@ -326,7 +345,11 @@
       gap: 1.25rem;
       padding: 1.4rem;
       border-radius: var(--radius-xl);
-      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 1));
+      background: radial-gradient(
+        circle at top left,
+        rgba(15, 23, 42, 0.95),
+        rgba(15, 23, 42, 1)
+      );
       border: 1px solid var(--border);
       box-shadow: var(--shadow-soft);
       position: relative;
@@ -376,7 +399,11 @@
 
     .featured-aside {
       border-radius: var(--radius-lg);
-      background: radial-gradient(circle at top, rgba(129, 140, 248, 0.15), rgba(15, 23, 42, 0.98));
+      background: radial-gradient(
+        circle at top,
+        rgba(129, 140, 248, 0.15),
+        rgba(15, 23, 42, 0.98)
+      );
       border: 1px solid rgba(129, 140, 248, 0.55);
       padding: 1rem;
       font-size: 0.8rem;
@@ -482,7 +509,11 @@
       margin-top: 2.5rem;
       padding: 1.6rem 1.4rem 1.8rem;
       border-radius: var(--radius-xl);
-      background: radial-gradient(circle at top right, rgba(34, 197, 94, 0.16), rgba(15, 23, 42, 0.97));
+      background: radial-gradient(
+        circle at top right,
+        rgba(34, 197, 94, 0.16),
+        rgba(15, 23, 42, 0.97)
+      );
       border: 1px solid rgba(34, 197, 94, 0.25);
       box-shadow: var(--shadow-soft);
     }
@@ -605,20 +636,18 @@
 </head>
 <body class="blog-page">
   <div class="blog-container">
-    <!-- NAVBAR (linked to other tab/pages) -->
-  <header class="blog-nav">
-  <a href="index.html" class="blog-logo">
- <img src="bvk-logo.jpeg" alt="BVK logo" class="brand-logo" />
-    
-  </a>
-
+    <!-- NAVBAR -->
+    <header class="blog-nav">
+      <a href="index.html#home" class="blog-logo">
+        <img src="bvk-logo.jpeg" alt="BVK logo" class="brand-logo" />
+      </a>
 
       <ul>
-        <li><a href="index.html">Home</a></li>
-<li><a href="index.html#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
         <li><a href="blog.html" class="blog-active">Blog</a></li>
       </ul>
     </header>
@@ -632,12 +661,12 @@
         </div>
 
         <h1 class="blog-title">
-          Ideas from a <span>Software Engineer’s</span> desk.
+          Ideas from a <span>Software Engineer's</span> desk.
         </h1>
         <p class="blog-subtitle">
-         I share what I’m building, breaking, and fixing — from system design sketches
-to tiny bugs that taught me big lessons. If you’re a recruiter, engineer, or
-curious builder, this is where you see how I think.
+          I share what I'm building, breaking, and fixing — from system design sketches
+          to tiny bugs that taught me big lessons. If you're a recruiter, engineer, or
+          curious builder, this is where you see how I think.
         </p>
 
         <div class="blog-hero-tags">
@@ -658,15 +687,14 @@ curious builder, this is where you see how I think.
         </div>
 
         <div class="blog-meta-line">
-          <span><strong>Updated often</strong> with real issues from the code I’m shipping.</span>
-          <span>Mostly about Java, system design, performance, and clean architecture.
-.</span>
+          <span><strong>Updated often</strong> with real issues from the code I'm shipping.</span>
+          <span>Mostly about Java, system design, performance, and clean architecture.</span>
         </div>
       </div>
 
       <aside class="blog-hero-side">
         <div>
-          <h3 class="side-heading">What you’ll find here</h3>
+          <h3 class="side-heading">What you'll find here</h3>
           <p class="side-text">
             Short, practical posts focused on how I approach problems — not just screenshots
             of results. I want this page to reflect how I think as an engineer.
@@ -686,7 +714,7 @@ curious builder, this is where you see how I think.
         </div>
 
         <div class="side-highlight">
-          Strong engineering is about clarity of thought.  
+          Strong engineering is about clarity of thought.
           This blog is where I make that visible.
         </div>
       </aside>
@@ -705,12 +733,11 @@ curious builder, this is where you see how I think.
         <div>
           <div class="featured-label">Case study</div>
           <h3 class="featured-title">
-            From “it works on my machine” to a stable, production-ready feature.
+            From "it works on my machine" to a stable, production-ready feature.
           </h3>
           <p class="featured-excerpt">
-           How I shipped a feature end-to-end: breaking down the problem, designing a clean API,
-avoiding hidden complexity, and leaving the codebase easy for the next engineer to change.
-
+            How I shipped a feature end-to-end: breaking down the problem, designing a clean API,
+            avoiding hidden complexity, and leaving the codebase easy for the next engineer to change.
           </p>
 
           <div class="featured-meta">
@@ -734,14 +761,14 @@ avoiding hidden complexity, and leaving the codebase easy for the next engineer 
           </div>
           <p>
             This is the kind of thinking I bring to teams: clear communication, trade-offs,
-            and an understanding that “done” means reliable, observable, and understandable,
-            not just “it runs once on my laptop”.
+            and an understanding that "done" means reliable, observable, and understandable,
+            not just "it runs once on my laptop".
           </p>
         </aside>
       </article>
     </section>
 
-    <!-- OTHER POSTS GRID (you can add / edit cards anytime) -->
+    <!-- OTHER POSTS GRID -->
     <section>
       <div class="section-header">
         <div>
@@ -754,7 +781,7 @@ avoiding hidden complexity, and leaving the codebase easy for the next engineer 
         <article class="post-card">
           <div>
             <div class="post-badge">Performance</div>
-            <h3 class="post-title">What I look at first when a React app “feels slow”</h3>
+            <h3 class="post-title">What I look at first when a React app "feels slow"</h3>
             <p class="post-excerpt">
               A quick mental checklist I run before opening any profiler: state shape,
               unnecessary renders, and expensive work happening in the wrong place.
@@ -799,9 +826,9 @@ avoiding hidden complexity, and leaving the codebase easy for the next engineer 
         <article class="post-card">
           <div>
             <div class="post-badge">Architecture</div>
-            <h3 class="post-title">Keeping a codebase “boringly consistent” on purpose</h3>
+            <h3 class="post-title">Keeping a codebase "boringly consistent" on purpose</h3>
             <p class="post-excerpt">
-              Why predictable patterns beat clever tricks when you’re building products
+              Why predictable patterns beat clever tricks when you're building products
               that multiple people will maintain.
             </p>
           </div>
@@ -817,7 +844,7 @@ avoiding hidden complexity, and leaving the codebase easy for the next engineer 
             <h3 class="post-title">My current dev stack and how each tool earns its place</h3>
             <p class="post-excerpt">
               From editor setup to git habits — focusing on what removes friction instead
-              of just looking “aesthetic”.
+              of just looking "aesthetic".
             </p>
           </div>
           <div class="post-footer">
@@ -829,7 +856,7 @@ avoiding hidden complexity, and leaving the codebase easy for the next engineer 
         <article class="post-card">
           <div>
             <div class="post-badge">Notes</div>
-            <h3 class="post-title">Micro-notes from real bugs I’ve fixed recently</h3>
+            <h3 class="post-title">Micro-notes from real bugs I've fixed recently</h3>
             <p class="post-excerpt">
               Tiny lessons: off-by-one issues, async mistakes, and assumptions that were
               silently wrong in production.
@@ -848,17 +875,12 @@ avoiding hidden complexity, and leaving the codebase easy for the next engineer 
       <div class="message-header">
         <h2>Have a doubt about anything I wrote?</h2>
         <p>
-          Whether you’re a recruiter, engineer, or student — if something here sparks a
+          Whether you're a recruiter, engineer, or student — if something here sparks a
           question, send it. I read every message and reply personally.
-
         </p>
       </div>
 
-      <!-- 
-        Replace action="#" with the same endpoint you use on your main contact form
-        (e.g., Formspree / backend route) so this also sends you emails.
-      -->
-      <form class="message-form" action="#" method="POST">
+      <form id="blogForm" class="message-form" action="#" method="POST">
         <div>
           <label for="name">Name</label>
           <input id="name" name="name" type="text" placeholder="Your name" required />
@@ -870,8 +892,13 @@ avoiding hidden complexity, and leaving the codebase easy for the next engineer 
         </div>
 
         <div class="full-width">
-          <label for="topic">Topic (optional)</label>
-          <input id="topic" name="topic" type="text" placeholder="Post, idea, or topic you’re asking about" />
+          <label for="subject">Subject / Topic (optional)</label>
+          <input
+            id="subject"
+            name="subject"
+            type="text"
+            placeholder="Post, idea, or topic you're asking about"
+          />
         </div>
 
         <div class="full-width">
@@ -880,7 +907,7 @@ avoiding hidden complexity, and leaving the codebase easy for the next engineer 
             id="message"
             name="message"
             rows="4"
-            placeholder="Ask me about a post, my approach to a problem, or anything you’d like to discuss."
+            placeholder="Ask me about a post, my approach to a problem, or anything you'd like to discuss."
             required
           ></textarea>
         </div>
@@ -890,23 +917,61 @@ avoiding hidden complexity, and leaving the codebase easy for the next engineer 
         </div>
       </form>
 
+      <p id="blogStatus" class="message-note"></p>
       <p class="message-note">
-        I won’t spam you. I’ll only use your email to reply to your question.
+        I won't spam you. I'll only use your email to reply to your question.
       </p>
     </section>
 
     <!-- FOOTER -->
     <footer class="blog-footer">
-      <span>© <span id="year"></span> VamC • Built with clean HTML & CSS</span>
+      <span>© <span id="year"></span> Vamsi • Built with clean HTML & CSS</span>
       <div class="footer-links">
-        <a href="#projects">View my projects</a>
-        <a href="#contact">Get in touch</a>
+        <a href="index.html#projects">View my projects</a>
+        <a href="index.html#contact">Get in touch</a>
       </div>
     </footer>
   </div>
 
+  <!-- EmailJS + simple handler (same service/template as main site) -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
-    // Simple dynamic year
+    (function () {
+      emailjs.init("fsUaOsUz_CDYft5Ob");
+    })();
+
+    const blogForm = document.getElementById("blogForm");
+    const blogStatus = document.getElementById("blogStatus");
+
+    blogForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      blogStatus.textContent = "Sending...";
+      blogStatus.style.color = "#9ca3af";
+
+      const params = {
+        name: document.getElementById("name").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        subject: document.getElementById("subject").value.trim(),
+        message: document.getElementById("message").value.trim()
+      };
+
+      emailjs
+        .send("service_q3odyid", "template_6a642yo", params)
+        .then(function () {
+          blogStatus.textContent = "Thanks! Your message has been sent.";
+          blogStatus.style.color = "#22c55e";
+          blogForm.reset();
+        })
+        .catch(function (error) {
+          console.error("EmailJS error:", error);
+          blogStatus.textContent =
+            "Something went wrong while sending. Please try again.";
+          blogStatus.style.color = "#f97373";
+        });
+    });
+
+    // Dynamic year
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
