@@ -1061,3 +1061,55 @@ body {
     padding-left: 2rem;
   }
 }
+/* Extra mobile tweaks */
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 5vw;
+  }
+
+  .hero-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .hero h1,
+  .hero-content h1 {
+    font-size: 2.1rem;
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-photo {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .grid,
+  .skills-grid,
+  .projects-grid,
+  .research-grid,
+  .cert-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline {
+    margin-left: 0;
+  }
+}
+
