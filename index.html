@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<head>
   <meta charset="UTF-8" />
   <title>Vamsi Krishna Bh | Full Stack Java Developer</title>
+
+  <!-- Favicon (browser tab icon) -->
+  <link rel="icon" type="image/png" href="bvk-logo.jpeg">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 
@@ -13,37 +18,49 @@
     href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap"
     rel="stylesheet"
   />
+
+  <style>
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Prevent anchors from hiding under fixed header */
+    section {
+      scroll-margin-top: 110px;
+    }
+  </style>
 </head>
 
 <body>
 
   <!-- ===== Navigation ===== -->
   <header class="nav-shell">
-  <div class="nav-inner">
-    <!-- Logo -->
-    <a href="/" class="brand">
-	<img src="bvk-logo.jpeg" alt="BVK logo" class="brand-logo" />
-      
-   
-    </a>
+    <div class="nav-inner">
+      <!-- Logo -->
+      <a href="#home" class="brand">
+        <img src="bvk-logo.jpeg" alt="BVK logo" class="brand-logo" />
+      </a>
 
-    <!-- Links -->
-    <nav class="main-nav">
-      <a href="#home" class="nav-link nav-active">Home</a>
-<a href="#skills" class="nav-link">Skills</a>
-<a href="#experience" class="nav-link">Experience</a>
-      <a href="#projects" class="nav-link">Projects</a>      
-      <a href="#contact" class="nav-link">Contact</a>
-      <a href="blog.html" class="nav-link">Blog</a>
-    </nav>
-  </div>
-</header>
+      <!-- Links -->
+      <nav class="main-nav">
+        <a href="#home" class="nav-link nav-active">Home</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#research" class="nav-link">Research</a>
+        <a href="#certifications" class="nav-link">Certifications</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+      </nav>
+    </div>
+  </header>
 
 
   <!-- ===== Hero Section ===== -->
   <section id="home" class="section hero">
     <div class="hero-wrapper">
-      
+
       <!-- Left Side: Text -->
       <div class="hero-content">
         <p class="hero-tag">Full Stack Java Developer</p>
@@ -57,15 +74,18 @@
         <div class="hero-actions">
           <a href="#projects" class="btn hero-primary">View Projects</a>
           <a href="#contact" class="btn hero-outline">Contact Me</a>
-          <a href="VamsiKrishna_Bhagavathula_Resume.pdf" class="btn hero-outline" download>
+
+          <!-- ✅ Updated resume file name to the one you uploaded earlier -->
+          <!-- If you want a different file name, just change the href OR rename the pdf in your project -->
+          <a href="VamsiKrishna_Bhagavathula.pdf" class="btn hero-outline" download>
             Download Resume
           </a>
         </div>
 
         <div class="hero-social">
-          <a href="mailto:vamsi.bh32@gmail.com">📧 Email</a>
+          <a href="mailto:vamsik.bh72@gmail.com">📧 Email</a>
           <span>•</span>
-          <a href="http://linkedin.com/in/vamsikbh" target="_blank">💼 LinkedIn</a>
+          <a href="https://www.linkedin.com/in/vamsikbhagavathula/" target="_blank" rel="noopener">💼 LinkedIn</a>
         </div>
 
         <div class="hero-meta">
@@ -210,7 +230,7 @@
             <li>Conducted research in energy-efficient edge computing and secure IoT communication; received an Academic Excellence Award.</li>
           </ul>
           <div class="tag-list">
-<span class="tag-chip">AI</span>
+            <span class="tag-chip">AI</span>
             <span class="tag-chip">Java</span>
             <span class="tag-chip">Python</span>
             <span class="tag-chip">SQL</span>
@@ -347,9 +367,10 @@
         <h3>Energy-Efficient Edge Computing (Thesis)</h3>
         <p>Graduate thesis exploring lightweight "AI" workloads for IoT and edge devices.</p>
         <div class="btn-wrapper">
-          <a 
-            href="https://csuepress.columbusstate.edu/theses_dissertations/511/" 
-            target="_blank" 
+          <a
+            href="https://csuepress.columbusstate.edu/theses_dissertations/511/"
+            target="_blank"
+            rel="noopener"
             class="small-btn">
             View Thesis
           </a>
@@ -361,9 +382,10 @@
         <h3>ACM Conference Paper</h3>
         <p>Published research on secure IoT communication using Zymkey-based mutual authentication.</p>
         <div class="btn-wrapper">
-          <a 
-            href="https://drive.google.com/file/d/10EM1fiJOI8bfBDWh3NeKPUpENwu1y96U/view" 
-            target="_blank" 
+          <a
+            href="https://drive.google.com/file/d/10EM1fiJOI8bfBDWh3NeKPUpENwu1y96U/view"
+            target="_blank"
+            rel="noopener"
             class="small-btn">
             Read Paper
           </a>
@@ -375,9 +397,10 @@
         <h3>Teaching & Mentorship</h3>
         <p>Graduate Research &amp; Teaching Assistant for Java, Python, SQL, and Database Design at Columbus State University.</p>
         <div class="btn-wrapper">
-          <a 
-            href="http://linkedin.com/in/vamsikbh" 
-            target="_blank" 
+          <a
+            href="https://www.linkedin.com/in/vamsikbhagavathula/"
+            target="_blank"
+            rel="noopener"
             class="small-btn">
             Connect on LinkedIn
           </a>
@@ -389,9 +412,10 @@
         <h3>Academic Excellence Award</h3>
         <p>Recognized for outstanding academic performance in the M.S. in Applied Computer Science program (2022–2023).</p>
         <div class="btn-wrapper">
-          <a 
-            href="AcademicExcellence.jpeg" 
-            target="_blank" 
+          <a
+            href="AcademicExcellence.jpeg"
+            target="_blank"
+            rel="noopener"
             class="small-btn">
             View Certificate
           </a>
@@ -428,6 +452,7 @@
 
           <a href="https://aws.amazon.com/verification"
              target="_blank"
+             rel="noopener"
              class="btn primary cert-btn">
             Verify Certification
           </a>
@@ -444,40 +469,39 @@
     <div class="contact-grid">
 
       <!-- Contact details -->
-    <div class="card contact-card contact-info-card">
-  <h3 class="contact-title">Contact Details</h3>
+      <div class="card contact-card contact-info-card">
+        <h3 class="contact-title">Contact Details</h3>
 
-  <div class="contact-item">
-    <div class="contact-icon">📧</div>
-    <div>
-      <span class="contact-label">Email</span>
-      <a href="mailto:vamsi.bh32@gmail.com" class="contact-value">
-        vamsi.bh32@gmail.com
-      </a>
-    </div>
-  </div>
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div>
+            <span class="contact-label">Email</span>
+            <a href="mailto:vamsik.bh72@gmail.com" class="contact-value">
+              vamsik.bh72@gmail.com
+            </a>
+          </div>
+        </div>
 
-  <div class="contact-item">
-    <div class="contact-icon">📱</div>
-    <div>
-      <span class="contact-label">Work</span>
-      <a href="tel:+16146190022" class="contact-value">
-        +1 (614) 619-0022
-      </a>
-    </div>
-  </div>
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div>
+            <span class="contact-label">Work</span>
+            <a href="tel:+16146194464" class="contact-value">
+              +1 (614) 619-4464
+            </a>
+          </div>
+        </div>
 
-  <div class="contact-item">
-    <div class="contact-icon">🔗</div>
-    <div>
-      <span class="contact-label">LinkedIn</span>
-      <a href="https://linkedin.com/in/vamsikbh" target="_blank" class="contact-value">
-        linkedin.com/in/vamsikbh
-      </a>
-    </div>
-  </div>
-</div>
-
+        <div class="contact-item">
+          <div class="contact-icon">🔗</div>
+          <div>
+            <span class="contact-label">LinkedIn</span>
+            <a href="https://www.linkedin.com/in/vamsikbhagavathula/" target="_blank" rel="noopener" class="contact-value">
+              linkedin.com/in/vamsikbhagavathula
+            </a>
+          </div>
+        </div>
+      </div>
 
       <!-- Message form (EmailJS) -->
       <div class="card contact-card">
@@ -503,8 +527,6 @@
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
   <script>
-    // Mobile nav toggle
-    
     // Dynamic year
     document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -536,4 +558,35 @@
     });
   </script>
 
+  <!-- ✅ Scroll Spy: update active nav link while scrolling -->
+  <script>
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-link[href^='#']");
 
+    function setActiveLink() {
+      let currentSectionId = "home";
+      const scrollY = window.scrollY;
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 130; // header offset
+        const sectionHeight = section.offsetHeight;
+
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          currentSectionId = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.remove("nav-active");
+        if (link.getAttribute("href") === `#${currentSectionId}`) {
+          link.classList.add("nav-active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", setActiveLink);
+    window.addEventListener("load", setActiveLink);
+  </script>
+
+</body>
+</html>
