@@ -1395,3 +1395,173 @@ section {
   }
 }
 
+/* NAV DOT FIX - FINAL */
+/* Nothing should show between the logo and nav on desktop. */
+.nav-toggle {
+  display: none !important;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.72);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  font-size: 0;
+  line-height: 0;
+  color: transparent;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--text-main);
+  transition: transform 0.22s ease, opacity 0.22s ease;
+}
+
+.nav-toggle.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (min-width: 821px) {
+  .nav-toggle {
+    display: none !important;
+  }
+
+  .main-nav {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 820px) {
+  .nav-inner {
+    position: relative;
+  }
+
+  .nav-toggle {
+    display: inline-flex !important;
+    margin-left: auto;
+  }
+
+  .main-nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 0.6rem);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 18px;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    background: rgba(15, 23, 42, 0.96);
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.42);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  }
+
+  .main-nav.nav-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+/* MOBILE HERO PHOTO REORDER - FINAL */
+/* Desktop keeps the two-column hero exactly as-is. Mobile shows the photo directly below the intro text. */
+.hero-photo-mobile {
+  display: none;
+}
+
+.hero-photo-desktop {
+  display: block;
+}
+
+@media (max-width: 820px) {
+  .hero-photo-desktop {
+    display: none !important;
+  }
+
+  .hero-photo-mobile {
+    display: block;
+    width: min(100%, 330px);
+    margin: 1.35rem auto 1.4rem;
+    padding: 10px;
+    border-radius: 26px;
+  }
+
+  .hero-photo-mobile img {
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 20px;
+  }
+
+  .hero-photo-mobile .photo-badge-top {
+    top: 7%;
+    right: 0.6rem;
+    min-height: 42px;
+    padding: 0 0.85rem;
+    font-size: 0.78rem;
+  }
+
+  .hero-photo-mobile .photo-badge-bottom {
+    left: 0.55rem;
+    right: 0.55rem;
+    bottom: 5%;
+    min-height: 44px;
+    padding: 0 0.8rem;
+    font-size: 0.74rem;
+    justify-content: flex-start;
+    white-space: nowrap;
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .hero-actions {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-photo-mobile {
+    width: min(100%, 300px);
+    margin-top: 1.15rem;
+  }
+
+  .hero-photo-mobile .photo-badge-bottom {
+    font-size: 0.68rem;
+  }
+
+  .hero-photo-mobile .photo-badge-top {
+    font-size: 0.72rem;
+  }
+}
+
