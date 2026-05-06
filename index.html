@@ -28,6 +28,12 @@
         <img src="bvk-logo.jpeg" alt="BVK logo" class="brand-logo" />
       </a>
 
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
       <nav class="main-nav" aria-label="Main navigation">
         <a href="#home" class="nav-link nav-active">Home</a>
         <a href="#about" class="nav-link">About</a>
@@ -48,7 +54,7 @@
         <div class="hero-content">
           <p class="hero-tag">Senior Software Engineer</p>
 
-          <h1>Hello, I'm <span class="text-accent">Vamsi Krishna</span></h1>
+          <h1>Hello, I'm <span class="text-accent"><span class="mobile-name">Vamsi Krishna</span><span class="desktop-last"> </span></span></h1>
 
           <p class="hero-subtitle">
             I build cloud-native, event-driven enterprise systems using Java 17, Spring Boot,
@@ -56,23 +62,45 @@
           </p>
 
           <div class="hero-actions">
-            <a href="#projects" class="btn hero-primary">View Engineering Highlights</a>
-            <a href="Vamsi_Krishna_Resume.pdf" class="btn hero-outline" target="_blank" rel="noopener">Resume</a>
+            <a href="Vamsi_Krishna_Resume.pdf" class="btn hero-primary btn-glow" target="_blank" rel="noopener">Resume</a>
+            <a href="#projects" class="btn hero-outline">View Highlights</a>
             <a href="#contact" class="btn hero-outline">Contact Me</a>
           </div>
 
-          <div class="hero-social" aria-label="Contact links">
+          <div class="hero-social hero-social-pills" aria-label="Contact links">
             <a href="mailto:vamsik.bh72@gmail.com">Email</a>
-            <span>•</span>
             <a href="https://www.linkedin.com/in/vamsikbh" target="_blank" rel="noopener">LinkedIn</a>
-            <span>•</span>
-            <a href="https://thebvk.com" target="_blank" rel="noopener">thebvk.com</a>
+            <a href="https://thebvk.com" target="_blank" rel="noopener">Portfolio</a>
           </div>
 
           <div class="hero-meta">
             <span>USA</span>
             <span>6+ years experience</span>
             <span>Java • Spring Boot • Kafka • AWS • React/Angular</span>
+          </div>
+
+          <p class="hero-availability">
+            Open to Senior Software Engineer roles focused on Java, Spring Boot, Kafka, AWS,
+            React/Angular, distributed systems, and enterprise modernization.
+          </p>
+
+          <div class="hero-impact">
+            <div class="impact-chip">
+              <span class="impact-number">30+</span>
+              <span class="impact-label">REST APIs Delivered</span>
+            </div>
+            <div class="impact-chip">
+              <span class="impact-number">40%</span>
+              <span class="impact-label">Less Duplicate Backend Logic</span>
+            </div>
+            <div class="impact-chip">
+              <span class="impact-number">~40%</span>
+              <span class="impact-label">Improved UI Latency</span>
+            </div>
+            <div class="impact-chip">
+              <span class="impact-number">30%</span>
+              <span class="impact-label">Faster Reporting Queries</span>
+            </div>
           </div>
         </div>
 
@@ -100,6 +128,7 @@
 
       <div class="grid about-grid">
         <article class="card about-card">
+          <div class="about-card-badge">01</div>
           <h3>Engineering Focus</h3>
           <p>
             My work centers on Java/Spring Boot microservices, Kafka-driven workflows,
@@ -109,6 +138,7 @@
         </article>
 
         <article class="card about-card">
+          <div class="about-card-badge">02</div>
           <h3>How I Work</h3>
           <p>
             I care about clear service boundaries, readable code, practical observability,
@@ -118,6 +148,7 @@
         </article>
 
         <article class="card about-card">
+          <div class="about-card-badge">03</div>
           <h3>Currently Focused On</h3>
           <p>
             Distributed systems, event-driven architecture, backend performance,
@@ -540,7 +571,7 @@
   </main>
 
   <footer class="footer">
-    <p>© <span id="year"></span> Vamsi Krishna. All rights reserved.</p>
+    <p>© <span id="year"></span> Vamsi Krishna — Senior Software Engineer focused on Java, Spring Boot, Kafka, AWS, and distributed systems.</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -608,6 +639,27 @@
 
     window.addEventListener("scroll", setActiveLink);
     window.addEventListener("load", setActiveLink);
+  </script>
+
+  <script>
+    const navToggle = document.querySelector(".nav-toggle");
+    const mainNav = document.querySelector(".main-nav");
+
+    if (navToggle && mainNav) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = mainNav.classList.toggle("nav-open");
+        navToggle.classList.toggle("is-open", isOpen);
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      mainNav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mainNav.classList.remove("nav-open");
+          navToggle.classList.remove("is-open");
+          navToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
   </script>
 </body>
 </html>
